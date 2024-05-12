@@ -91,12 +91,12 @@ async def fcast(_, m : Message):
             userid = usrs["user_id"]
             #print(int(userid))
             if m.command[0] == "fbroadcast":
-                await app.send_message(chat_id=int(userid), text=m.reply_to_message.text)
+                await m.reply_to_message.forward(int(userid))
             success +=1
         except FloodWait as ex:
             await asyncio.sleep(ex.value)
             if m.command[0] == "fbroadcast":
-                await app.send_message(chat_id=int(userid), text=m.reply_to_message.text)
+                await m.reply_to_message.forward(int(userid))
         except InputUserDeactivated:
             deactivated +=1
             remove_user(userid)
@@ -106,8 +106,7 @@ async def fcast(_, m : Message):
             print(e)
             failed +=1
 
-    await lel.edit(f"✅Successful Broadcast to {success} users.\n❌ Failed to {failed} users.\n👾 Found {blocked} Blocked users \n👻 Found {deactivated} Deactivated users.")
-    
+    await lel.edit(f"✅Successful Broadcast to {success} users.\n❌ Failed to {failed} users.\n👾 Found {blocked} Blocked users \n👻 Found {deactivated} Deactivated users.")    
 
 
 #run
