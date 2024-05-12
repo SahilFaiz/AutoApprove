@@ -9,4 +9,4 @@ CHANNEL = getenv("CHANNEL", "webscraperss") #Your public channel username withou
 MONGO = getenv("MONGO", "mongodb://mongo:yZeuVCRcmXLcJDXsDrKiYHDEVMlXEUnf@viaduct.proxy.rlwy.net:49018") #Put mongo db url here
 #Optional Variables
 OWNER_ID = int(getenv("OWNER_ID", 6134208096)) #Go to @ThunderrXbot and type /id and put that value here. 
-FSUB = bool(getenv("FSUB", False)) #Set this True if you want to enable force subscription from users else set to False.
+FSUB = bool(getenv("FSUB", True)) #Set this True if you want to enable force subscription from users else set to False.
